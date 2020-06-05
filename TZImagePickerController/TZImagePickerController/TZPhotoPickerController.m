@@ -148,6 +148,13 @@ static CGFloat itemMargin = 5;
     [super viewWillDisappear:animated];
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
     tzImagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
+    
+    //修补单选照片禁止预览时，选中后后退不能再次选择bug
+    if (tzImagePickerVc.maxImagesCount == 1 && tzImagePickerVc.allowPreview == false) {
+        for (TZAssetModel *model in tzImagePickerVc.selectedModels) {
+            [tzImagePickerVc removeSelectedModel:model];
+        }
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {
