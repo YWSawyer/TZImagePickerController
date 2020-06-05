@@ -266,11 +266,11 @@ static CGFloat itemMargin = 5;
     _numberImageView.backgroundColor = [UIColor clearColor];
     
     _numberLabel = [[UILabel alloc] init];
-    _numberLabel.font = [UIFont systemFontOfSize:15];
+    _numberLabel.font = [UIFont systemFontOfSize:12];
     _numberLabel.adjustsFontSizeToFitWidth = YES;
     _numberLabel.textColor = [UIColor whiteColor];
     _numberLabel.textAlignment = NSTextAlignmentCenter;
-    _numberLabel.text = [NSString stringWithFormat:@"%zd",tzImagePickerVc.selectedModels.count];
+    _numberLabel.text = [NSString stringWithFormat:@"%zd/%zd",tzImagePickerVc.selectedModels.count,tzImagePickerVc.maxImagesCount];
     _numberLabel.hidden = tzImagePickerVc.selectedModels.count <= 0;
     _numberLabel.backgroundColor = [UIColor clearColor];
     
@@ -717,7 +717,7 @@ static CGFloat itemMargin = 5;
     
     _numberImageView.hidden = tzImagePickerVc.selectedModels.count <= 0;
     _numberLabel.hidden = tzImagePickerVc.selectedModels.count <= 0;
-    _numberLabel.text = [NSString stringWithFormat:@"%zd",tzImagePickerVc.selectedModels.count];
+    _numberLabel.text = [NSString stringWithFormat:@"%zd/%zd",tzImagePickerVc.selectedModels.count,tzImagePickerVc.maxImagesCount];
     
     _originalPhotoButton.enabled = tzImagePickerVc.selectedModels.count > 0;
     _originalPhotoButton.selected = (_isSelectOriginalPhoto && _originalPhotoButton.enabled);
